@@ -1,7 +1,7 @@
 import requests
 import time
 import pytest
-from python import config
+from python_lang import config
 
 
 class TestUserGet:

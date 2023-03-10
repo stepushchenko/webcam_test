@@ -1,7 +1,7 @@
 import requests
 import time
 import pytest
-from python import config
+from python_lang import config
 
 
 class TestUserCreate:
@@ -101,6 +101,7 @@ class TestUserCreate:
     '''
     Этот тест флакает. Иногда ловится 400 статус код.
     '''
+    @pytest.mark.positive
     @pytest.mark.parametrize('test_data', create_user_positive_test_data)
     def test_positive_create_user(self, test_data):
         url = f'{config.url.BASE_URL}/user/create'
@@ -123,6 +124,7 @@ class TestUserCreate:
         assert response['details']['password'] != test_data['password']
         # add other checks
 
+    @pytest.mark.negative
     @pytest.mark.parametrize('test_data', create_user_negative_test_data)
     def test_negative_create_user(self, test_data):
         url = f'{config.url.BASE_URL}/user/create'
