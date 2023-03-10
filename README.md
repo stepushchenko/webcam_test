@@ -13,9 +13,10 @@ pytest python_lang/tests/user/test_create  # to run only tests from 'user.create
 pytest -m positive  # to run only tests with mark 'positive/negative'
 ```
 
-## Notes about API: user.create.
+## API method: user.create
 
 Схема ответа при создании пользователя:
+```text
 {
     (bool) 'success':
     (dict) 'details:
@@ -27,6 +28,7 @@ pytest -m positive  # to run only tests with mark 'positive/negative'
         (int) 'id':
     (str) 'message':
 }
+```
 
 Потенциальные проверки:
 - Позитивные:
@@ -59,9 +61,10 @@ pytest -m positive  # to run only tests with mark 'positive/negative'
         - паролей
     - создаем пользователя с почтой, не соответствующей маске электронной почте (проверка на наличие +)
 
-## Notes about API: user.get.
+## API method: user.get
 
 Схема ответа при запросе списка пользователей:
+```text
 [
     {
         (int) 'id':
@@ -72,3 +75,4 @@ pytest -m positive  # to run only tests with mark 'positive/negative'
         (str, date) 'updated_at':
     },
 ]
+```
